@@ -27,6 +27,7 @@ module.exports = class PythagorasClient extends AkairoClient {
         ],
       }
     );
+
     this.logger = logger;
     this.config = config;
     this.CommandHandler = new CommandHandler(this, {

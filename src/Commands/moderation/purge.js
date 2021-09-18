@@ -139,26 +139,26 @@ module.exports = class PurgeCommand extends Command {
       const fetch = await msg.channel.messages.fetch({ limit: count });
       const deletedMessages = await msg.channel.bulkDelete(fetch, true);
 
-      const results = {};
-      for (const [, deleted] of deletedMessages) {
-        const user = `${deleted.author.username}#${deleted.author.discriminator}`;
-        if (!results[user]) results[user] = 0;
-        results[user]++;
-      }
+      // const results = {};
+      // for (const [, deleted] of deletedMessages) {
+      //   const user = `${deleted.author.username}#${deleted.author.discriminator}`;
+      //   if (!results[user]) results[user] = 0;
+      //   results[user]++;
+      // }
 
-      const userMessageMap = Object.entries(results);
+      // const userMessageMap = Object.entries(results);
 
-      const finalResult = `${deletedMessages.size} message${
-        deletedMessages.size > 1 ? "s" : ""
-      } were removed!\n\n${userMessageMap
-        .map(([user, messages]) => `**${user}** : ${messages}`)
-        .join("\n")}`;
-      console.log(finalResult);
+      // const finalResult = `${deletedMessages.size} message${
+      //   deletedMessages.size > 1 ? "s" : ""
+      // } were removed!\n\n${userMessageMap
+      //   .map(([user, messages]) => `**${user}** : ${messages}`)
+      //   .join("\n")}`;
+      // console.log(finalResult);
       await msg.channel
-        .send({ content: finalResult })
-        .then(async (msg) => setTimeout(() => msg.delete(), 5000));
+        .send({ content: `${count} messages deleted.` })
+        .then(async (msg) => setTimeout(() => msg.delete(), 500));
     } catch (e) {
-      this.client.logger.error(e.message);
+      this.client.logger.error(e);
       msg.channel.send(CreateEmbed("warn", "⛔ | An error occured"));
     }
   }

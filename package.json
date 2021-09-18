@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "a discord bot.",
   "main": "index.js",
+  "engines": {
+    "node": ">=v16.x"
+  },
   "scripts": {
-    "start": "node index.js",
-    "test": "nodemon index.js",
-    "node-update": "npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",
-    "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i",
-    "node-update-then-clean": "npm run node-update && npm run node-clean"
+    "start": "node src",
+    "test": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "node": "^16.9.1",
     "nodemon": "^2.0.12"
   },
   "dependencies": {
