@@ -1,0 +1,31 @@
+{
+  "name": "pythagoras",
+  "version": "1.0.0",
+  "description": "a discord bot.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "nodemon index.js",
+    "node-update": "npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH",
+    "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i",
+    "node-update-then-clean": "npm run node-update && npm run node-clean"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "axios": "^0.21.4",
+    "cheerio": "^1.0.0-rc.10",
+    "common-tags": "^1.8.0",
+    "discord-akairo": "github:discord-akairo/discord-akairo",
+    "discord-image-generation": "^1.4.9",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "log4js": "^6.3.0",
+    "node-fetch": "^2.6.1",
+    "weky": "^3.1.8"
+  }
+}
